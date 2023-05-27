@@ -13,8 +13,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 const port = process.env.port || 3000;
 
-var privateKey = fs.readFileSync('private.key', 'utf8');
-var token = jwt.sign({ foo: 'bar' }, privateKey, { algorithm: 'RS256' });
+// var privateKey = fs.readFileSync('private.key', 'utf8');
+// var token = jwt.sign({ foo: 'bar' }, privateKey, { algorithm: 'RS256' });
 
 let text = `<p>Here is a quote from WWF's website:<br></p>
 <blockquote cite="http://www.worldwildlife.org/who/index.html">
@@ -29,9 +29,9 @@ app.get('/', function(req, res){
   res.send(text);
 })
 
-app.get('/api/login', (req, res) => {
+app.get('/api/login', async(req, res) => {
   try{
-    var articles = data_model.find({});
+    var articles = await data_model.find({});
     console.log(articles);
   } catch(err){
     console.error(err);
