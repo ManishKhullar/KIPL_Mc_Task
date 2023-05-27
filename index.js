@@ -33,6 +33,7 @@ app.get('/api/login', async(req, res) => {
   try{
     var articles = await data_model.find({});
     console.log(articles);
+    res.send(articles);
   } catch(err){
     console.error(err);
   }
