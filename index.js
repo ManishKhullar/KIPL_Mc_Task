@@ -1,10 +1,9 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const data_model = require('./model/data_model.js');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-
+const fs = require('fs');
 const app = express();
 
 app.use(cors());
@@ -14,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 const port = process.env.port || 3000;
 
-var privateKey = fs.readFileSync('private.key');
+var privateKey = fs.readFileSync('private.key', 'utf8');
 var token = jwt.sign({ foo: 'bar' }, privateKey, { algorithm: 'RS256' });
 
 let text = `<p>Here is a quote from WWF's website:<br></p>

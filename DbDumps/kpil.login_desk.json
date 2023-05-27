@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "64724b7945826228ae9e9c05"
+  },
+  "user_id": {
+    "$numberLong": "2345678901"
+  },
+  "password": "21eadferadr34232",
+  "permission": "level 1"
+}]
